@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void insert(int, int);
+void del(int);
+void display();
+void reverse();
+void search(int);
+void menu();
+
+int array[5];
+
+int main()
+{
+    int i;
+    for(i=0; i<=4; i++)
+    {
+        printf("Enter a number: ");
+        scanf("%d", &array[i]);
+    }
+    insert(2, 444);
+    del(5);
+    reverse();
+}
+
+void insert(int i, int number)
+{
+    i--;
+    int n;
+    for(n=3; n>=i; n--)
+    {
+        array[n+1]=array[n];
+    }
+    array[i]=number;
+    display();
+}
+
+void display()
+{
+    int i=0;
+    for(; i<=4; i++)
+        printf("%d ", array[i]);
+    printf("\n");
+}
+
+void del(int i)
+{
+    i--;
+    array[i]=0;
+    display();
+}
+
+void reverse()
+{
+    int array2[5];
+    int i, j;
+    for(i=0, j=4; i<=4; i++, j--)
+    {
+        array2[i]=array[j];
+    }
+    for(i=0; i<=4; i++)
+    {
+        array[i]=array2[i];
+    }
+    display();
+}
